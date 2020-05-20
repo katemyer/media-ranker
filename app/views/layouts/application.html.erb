@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html>
+  <div class="header">
   <head>
-    <title>MediaRanker</title>
+    <title class>MediaRanker</title>
+    link to media ranker | blah blah blah
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  </div>
+</html>
 
   <body>
+    <div class="topnav">
+    links to nav bar here
+    <%
+=begin%>
+ <%= link_to "Drivers", drivers_path %>
+    <%= link_to "Passengers", passengers_path %>
+    <%= link_to "Trips", trips_path %> 
+<%
+=end%>
+    </div>
     <%= yield %>
   </body>
+
 </html>
