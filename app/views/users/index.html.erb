@@ -1,0 +1,14 @@
+<h1>Users List</h1>
+
+<table style="text-align: center;">
+  <tr>
+    <th>Username</th>
+    <th>Joined</th>
+  </tr>
+    <% @users.each do |user|  %>
+  <tr>
+    <td><%= user[:username] %></td>
+    <td><%= user[:joined] %></td>
+  </tr>
+  <% end %>
+</table>
