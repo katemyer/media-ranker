@@ -1,11 +1,11 @@
-<h2>Edit Work</h1>
+<h2>Add a new work</h1>
 
 <%= form_with model: @work, class: 'form-group' do |f| %>
   <p>Please provide the following information to edit your media in our database:</p>
 
   <div class='form-group'>
     <%= f.label :category %>
-    <%= f.text_field :category, class: "form-control" %>
+    <%= f.select :category, options_for_select([ "book", "movie", "album" ], "album"), {}, {class: "form-control"} %>
   </div>
 
   <div class='form-group'>
@@ -29,7 +29,6 @@
   </div>
 
   <div class='form-group'>
-    <%= f.submit "Update Work", class: "btn btn-primary" %>
+    <%= f.submit "Create Work", class: "btn btn-primary" %>
   </div>
 <% end %>
-
