@@ -1,0 +1,20 @@
+<section>  
+  <h2><%= @work.title %></h2>
+  <p><%= @work.creator %></p>
+  <p>Published: <%= @work.publication_year %></p>
+  <p><%= @work.description %></p>
+
+  <section>
+  <%= link_to "Back to Media Ranks", root_path, method: :get, class:"btn btn-primary" %>
+  <%= link_to "Edit", edit_work_path(@work.id), method: :get, class:"btn btn-primary" %>
+  <%= link_to "Upvote", works_path, method: :post, class:"btn btn-primary" %>
+  <%= link_to "Delete", work_path(@work.id), method: :delete, data: {confirm: "Are you super sure?"}, class:"btn btn-primary" %>
+ 
+  </section>
+</section>
+
+<section class="works-votes__container">
+  <h3 class="works-votes__header">25 Votes for this Album</h3>
+  
+
+</section>

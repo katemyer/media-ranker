@@ -8,61 +8,66 @@ class WorksController < ApplicationController
   #GET /works/:id
   def show
     @work = Work.find_by(id: params[:id])
+    if @work.nil?
+      head :not_found
+      return
+    end
   end
 
-  # def new
-  #   @work = Work.new
-  # end
+  def new
+    @work = Work.new
+  end
 
-  # def edit
-  #   @passenger = Passenger.find_by(id: params[:id])
+  def edit
+    @work = Work.find_by(id: params[:id])
     
-  #   if @passenger.nil?
-  #     redirect_to root_path
-  #     return
-  #   end
-  # end
+    if @work.nil?
+      redirect_to root_path
+      return
+    end
+  end
 
-  # def create
-  #   @passenger = Passenger.new(passenger_params)
-  #   if @passenger.save
-  #     redirect_to passenger_path(@passenger.id)
-  #     return
-  #   else
-  #     render :new
-  #     return
-  #   end
-  # end
+  #POST /works (params)
+  def create
+    @work = Work.new(work_params)
+    if @work.save
+      redirect_to work_path(@work.id)
+      return
+    else
+      render :new
+      return
+    end
+  end
 
-  # def update
-  #   @passenger = Passenger.find_by(id: params[:id])
-  #   if @passenger.nil?
-  #     head :not_found
-  #     return
-  #   elsif @passenger.update(passenger_params)
+  #PATCH /works/:id (params)
+  def update
+    @work = Work.find_by(id: params[:id])
+    if @work.nil?
+      head :not_found
+      return
+    elsif @work.update(work_params)
       
-  #     redirect_to passenger_path
-  #     return
-  #   else
-  #     render :edit
-  #     return
-  #   end
-  # end
+      redirect_to work_path
+      return
+    else
+      render :edit
+      return
+    end
+  end
 
-  # def destroy
-  #   passenger_id = params[:id]
-  #   @passenger = Passenger.find_by_id(passenger_id)
+  #DELETE /works/:id
+  def destroy
+    @work = Work.find_by(id: params[:id])
+    if @work.nil?
+      head :not_found
+      return
+    end
     
-  #   if @passenger.nil?
-  #     head :not_found
-  #     return
-  #   end
+    @work.destroy
     
-  #   @passenger.destroy
-    
-  #   redirect_to passengers_path
-  #   return
-  # end
+    redirect_to works_path
+    return
+  end
 
 
 end #end class

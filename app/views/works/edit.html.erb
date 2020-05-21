@@ -1,0 +1,26 @@
+<h2>Edit Work</h1>
+
+<%= form_with model: @work, class: 'form-group' do |f| %>
+  <p>Please provide the following information to edit your media in our database:</p>
+
+  <div class='form-group'>
+    <%= f.label :category %>
+    <%= f.text_field :category, class: "form-control" %>
+  </div>
+  
+  <%= f.label :title %>
+  <%= f.text_field :title, class: "form-control" %>
+
+  <%= f.label :creator %>
+  <%= f.text_field :creator, class: "form-control" %>
+
+  <%= f.label :publication_year %>
+  <%= f.text_field :publication_year, class: "form-control" %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description, class: "form-control" %>
+
+
+  <%= f.submit "Update Work", class: "btn btn-primary" %>
+<% end %>
+
