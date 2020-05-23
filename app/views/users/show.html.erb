@@ -1,24 +1,31 @@
+<h2>User Summary: <%= link_to @user.username, user_path(@user.id), method: :get %></h2>
+<p>Joined site <%= @user.created_at %></p>
 
+<section class="user-votes__container">
+  <h3 class="user-votes__header">Votes</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Media Title</th>
+        <th>Created By</th>
+        <th>Published</th>
+        <th>Category</th>
+        <th>Voted On</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% 1.times do |vote|  %>
+      <tr>
+        <td>TODO: title + link to work</td>
+        <td>TODO: creator</td>
+        <td>TODO: publication_year</td>
+        <td>TODO: category</td>
+        <td>TODO: vote_created_at</td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</section>
 
-<table style="text-align: center;">
-  <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>VIN</th>
-    <th>Available</th>
-    <th>Total Revenue</th>
-    <th>Average Rating</th>
-    <th>Edit</th>
-    <th>Delete</th>
-  </tr>
-  <tr>
-    <td><%= @driver[:id] %> </td>
-    <td><%= link_to @driver.name, driver_path(@driver.id) %></td>
-    <td><%= @driver[:vin] %></td>
-    <td><%= @driver[:available] %></td>
-    <td>$<%= @driver.total_revenue.round(2) %></td>
-    <td><%= @driver.average_rating.round(2) %></td>
-    <td><%= link_to "Edit", edit_driver_path(@driver.id), method: :get %> </td>
-    <td><%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: "Are you super sure?"}%></td>
-  </tr>
-</table>
+<%= link_to "See all Users", users_path, method: :get, class:"btn btn-secondary" %>
+<%= link_to "Back to Media List", root_path, method: :get, class:"btn btn-primary" %>

@@ -8,8 +8,11 @@ class WorksController < ApplicationController
   #GET /works/:id
   def show
     @work = Work.find_by(id: params[:id])
+    flash[:success] = "Book added successfully"
     if @work.nil?
-      head :not_found
+      flash.now[:error] = "Something happened. Book not added."
+      render :new, status: :bad_request
+      #head :not_found
       return
     end
   end

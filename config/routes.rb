@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
+  #Login
+  get "/login", to: "users#login_form", as: "login"
+  post "/login", to: "users#login"
+  post "/logout", to: "users#logout", as: "logout"
+  get "/users/current", to: "users#current", as: "current_user"
+
   #Works
   get    "/works"          , to: "works#index",   as: :works
   post   "/works"          , to: "works#create"
@@ -31,6 +37,9 @@ Rails.application.routes.draw do
   put    "/votes/:id"      , to: "votes#update"
   delete "/votes/:id"      , to: "votes#destroy"
   get    "/votes/:id/edit" , to: "votes#edit",    as: :edit_vote
+
+
+
 
 
 

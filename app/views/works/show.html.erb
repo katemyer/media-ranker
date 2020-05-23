@@ -1,3 +1,11 @@
+<section class="flash-msg__section">
+    <% flash.each do |name, message| %>
+      <strong class="<%= name %>">
+        <%= message %>
+      </strong>
+    <% end %>
+  </section>
+
 <section>  
   <h2><%= @work.title %></h2>
   <p><%= @work.creator %></p>
