@@ -16,11 +16,13 @@
 
     <% @works.each do |work|  %>
     <tr>
-      <td> "TODO" </td>
+      <td> <%= work.get_vote_count %> </td>
       <td><%= link_to work[:title], work_path(work.id), method: :get%></td>
       <td><%= work[:creator] %></td>
       <td><%= work[:publication_year] %></td>
-      <td><%= link_to "Upvote TODO", works_path, method: :post, class:"btn btn-primary" %></td>
+      <td>
+          <%= link_to "Upvote", upvote_work_path(id: work.id), method: :post, class:"btn btn-primary" %>
+      </td>
     </tr>
     <% end %>
   </table> 

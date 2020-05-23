@@ -22,6 +22,9 @@
 /storage/*
 !/storage/.keep
 
+# Ignore VSC
+.vscode
+
 /public/assets
 .byebug_history
 

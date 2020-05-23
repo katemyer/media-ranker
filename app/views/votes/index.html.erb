@@ -1,0 +1,24 @@
+<h2>List of Votes</h2>
+
+<section class="media-table">
+  <h4>Votes</h4>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Work Title</th>
+        <th>Username</th>
+      </tr>
+    </thead>
+
+    <% @votes.each do |vote|  %>
+    <tr>
+      <td> <%= vote.id %> </td>
+      <td> <%= vote.work.title %> </td>
+      <td> <%= vote.user.username %> </td>
+    </tr>
+    <% end %>
+  </table> 
+  <%= link_to "Back to Media List", root_path, method: :get, class:"btn btn-primary" %>
+</section> 

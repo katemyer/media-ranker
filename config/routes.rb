@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   put    "/works/:id"      , to: "works#update"
   delete "/works/:id"      , to: "works#destroy"
   get    "/works/:id/edit" , to: "works#edit",    as: :edit_work
+  post   "/works/:id/upvote", to: "works#upvote", as: :upvote_work
 
 
   #Users

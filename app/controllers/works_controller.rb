@@ -71,7 +71,49 @@ class WorksController < ApplicationController
     redirect_to works_path
     return
   end
+  
+  #post "/works/:id/upvote"
+  def upvote
+    # get work_id from params
+    work_id = params[:id]
 
+    # get user_id
+    user_id = session[:user_id]
+
+    if user_id != nil
+      # get Work from the id
+      work = Work.find_by(id: work_id)
+      
+      # if exists
+      if work != nil
+        # create vote
+        if work.is_allowed_to_vote(user_id)
+          vote = Vote.new(user_id: user_id, work_id: work_id)
+          if vote.save
+            # route to /works
+            redirect_to works_path
+            return
+          else
+            flash[:error] = "Error Vote failed to save"
+            redirect_to works_path
+            return
+          end #vote.save
+        else
+          flash[:error] = "Error User Already Voted!"
+          redirect_to works_path
+          return
+        end
+      else
+        flash[:error] = "Error Work not found"
+        redirect_to works_path
+        return
+      end #work != nil
+    else
+      flash[:error] = "Error Must Be Logged In to vote"
+      redirect_to works_path
+      return
+    end  #user !- nill
+  end #method upvote
 
 end #end class
 

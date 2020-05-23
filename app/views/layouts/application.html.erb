@@ -55,7 +55,15 @@
     </nav>
   </header>
 
-  <main>
+      <% flash.each do |name, message| %>
+      <section class="alert alert-warning">
+        <span class="<%= name %>">
+          <%= message %>
+        </span>
+      </section>
+      <% end %>
+      
+  <main>        
     <%= yield %>
   </main>
 </body>
