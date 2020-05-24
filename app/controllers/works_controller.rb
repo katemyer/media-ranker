@@ -2,13 +2,17 @@ class WorksController < ApplicationController
   
   #GET /works
   def index
-    @works = Work.all
+    # Albums
+    @work_albums = Work.where('works.category = ?', 'album')
+    @work_movies = Work.where('works.category = ?', 'movie')
+    @work_books = Work.where('works.category = ?', 'book')
+    #@works = Work.where(category: 'album') #same
   end
 
   #GET /works/:id
   def show
     @work = Work.find_by(id: params[:id])
-    flash[:success] = "Book added successfully"
+    flash[:success] = "#{@work.category} added successfully"
     if @work.nil?
       flash.now[:error] = "Something happened. Book not added."
       render :new, status: :bad_request
