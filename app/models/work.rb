@@ -1,4 +1,11 @@
 class Work < ApplicationRecord
+  #validations
+  validates :category, presence: true
+  validates :title, presence: true
+  validates :creator, presence: true
+  validates :publication_year, presence: true
+  validates :description, presence: true
+
   has_many :votes, dependent: :destroy 
   has_many :users, through: :votes
 
