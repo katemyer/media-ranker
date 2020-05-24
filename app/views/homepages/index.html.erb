@@ -1,5 +1,66 @@
+<section class="spotlight">
+    <h2 class="spotlight__header">
+      <span class="spotlight__header--prefix">Media Spotlight</span>
+      <%= link_to @work_spotlight.title, work_path(@work_spotlight.id), class:'spotlight__link-to' %> by <%= @work_spotlight.creator%>
+    </h2>
+    <p class="spotlight__description">
+      <%= @work_spotlight.get_vote_count %> votes -
+    </p>
+</section>
 
-<div>
-<%= link_to "View All Users", users_path %>
-<%= link_to "View All Works", works_path %>
-</div>
+<hr class="root__hr">
+<section class="top-ten__container">
+  <section class="top-ten__list-container">
+  <h2 class="top-ten__header">
+    Top Movies
+  </h2>
+  <ul class="list-group top-ten__list">
+      <% @work_top_movies.each do |work | %>
+      <li class="list-group-item">
+        <h4>
+          <%= link_to work.title, work_path(work.id) %>
+          <small class="top-ten__creator">by <%= work.creator %></small>
+        </h4>
+        <p><%= work.get_vote_count %> votes</p>
+      </li>
+      <% end %>
+  </ul>
+  <!-- <a href="/works.movies">View More Movies</a> -->
+</section>
+
+<section class="top-ten__list-container">
+  <h2 class="top-ten__header">
+    Top Books
+  </h2>
+  <ul class="list-group top-ten__list">
+      <% @work_top_books.each do |work | %>
+      <li class="list-group-item">
+        <h4>
+          <%= link_to work.title, work_path(work.id) %>
+          <small class="top-ten__creator">by <%= work.creator %></small>
+        </h4>
+        <p><%= work.get_vote_count %> votes</p>
+      </li>
+      <% end %>
+  </ul>
+  <!-- <a href="/works.books">View More Books</a> -->
+</section>
+
+<section class="top-ten__list-container">
+  <h2 class="top-ten__header">
+    Top Albums
+  </h2>
+  <ul class="list-group top-ten__list">
+      <% @work_top_albums.each do |work | %>
+      <li class="list-group-item">
+        <h4>
+          <%= link_to work.title, work_path(work.id) %>
+          <small class="top-ten__creator">by <%= work.creator %></small>
+        </h4>
+        <p><%= work.get_vote_count %> votes</p>
+      </li>
+      <% end %>    
+  </ul>
+  <!-- <a href="/works.albums">View More Albums</a> -->
+</section>
+
