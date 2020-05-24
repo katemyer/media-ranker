@@ -1,7 +1,13 @@
 class UsersController < ApplicationController
 #GET /users
 def index
-  @users = User.all
+  #check if logged in 
+    if session[:user_id] != nil
+      @users = User.all
+    else
+      flash[:error] = "You must be logged in to see this page"
+      redirect_to root_path
+    end
 end
 
 #GET /users/:id
