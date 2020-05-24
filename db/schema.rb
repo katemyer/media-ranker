@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 2020_05_23_061632) do
   end
 
   create_table "votes", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "work_id"
+    t.belongs_to :work
+    t.belongs_to :user
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
