@@ -12,10 +12,10 @@ class HomepagesController < ApplicationController
                             .order('count_id desc') # Order desc (get vote most first)
                             .count('id') # count the votes by group  (this returns a HASH)
                             .first #this gives me the hash with most votes in an array [1,3] where 1 is the work.id & 3 is the vote count
-    if work_spotlight_id.length > 0
+    if work_spotlight_id != nil
       @work_spotlight = Work.find(work_spotlight_id[0])  # 0 element is the work.id of the most votes
     else
-      @work_spotlight = []
+      @work_spotlight = nil
     end
 
     # Top 10 Books
@@ -27,7 +27,7 @@ class HomepagesController < ApplicationController
                         .keys # from hash get only the keys which are work.id s, this returns an array of keys/work.ids
                         .slice(0,10) # get only the first 10 keys/work.ids
     @work_top_books = Work.find(top_book_ids)
-
+  
     # Top 10 Movies
     top_movie_ids = Vote.left_joins(:work) #Joins Vote <- Work
                         .where('works.category = ?', 'movie' ) # filter for only category =
