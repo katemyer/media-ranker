@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :find_user, only: [:show, :edit, :update, :destroy]
 #GET /users
 def index
   #check if logged in 
@@ -12,7 +13,6 @@ end
 
 #GET /users/:id
 def show
-  @user = User.find_by(id: params[:id])
   if @user.nil?
     head :not_found
     return
@@ -23,9 +23,7 @@ def new
   @user = User.new
 end
 
-def edit
-  @user = User.find_by(id: params[:id])
-  
+def edit 
   if @user.nil?
     redirect_to root_path
     return
@@ -46,7 +44,6 @@ end
 
 #PATCH /users/:id (params)
 def update
-  @user = User.find_by(id: params[:id])
   if @user.nil?
     head :not_found
     return
@@ -62,7 +59,6 @@ end
 
 #DELETE /users/:id
 def destroy
-  @user = User.find_by(id: params[:id])
   if @user.nil?
     head :not_found
     return
@@ -118,6 +114,14 @@ end
 
 end #end class
 
+
+private
+
 def user_params
   return params.require(:user).permit(:username)
+end
+
+#controller filter
+def find_user
+  @user = User.find_by(id: params[:id])
 end
