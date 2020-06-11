@@ -1,85 +1,10 @@
 <h2>List of Works</h2>
-
-<section class="media-table">
-  <h4>Albums</h4>
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th width="80">Votes</th>
-        <th>Title</th>
-        <th>Created By</th>
-        <th width="100">Published</th>
-        <th width="100">Upvote</th>
-      </tr>
-    </thead>
-
-    <% @work_albums.each do |work|  %>
-    <tr>
-      <td> <%= work.get_vote_count %> </td>
-      <td><%= link_to work[:title], work_path(work.id), method: :get%></td>
-      <td><%= work[:creator] %></td>
-      <td><%= work[:publication_year] %></td>
-      <td>
-          <%= link_to "Upvote", upvote_work_path(id: work.id), method: :post, class:"btn btn-primary" %>
-      </td>
-    </tr>
-    <% end %>
-  </table> 
-
   <section class="media-table">
-  <h4>Movies</h4>
+  <%= render partial: "listworks", locals: { title: "Albums", works: @work_albums } %>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th width="80">Votes</th>
-        <th>Title</th>
-        <th>Created By</th>
-        <th width="100">Published</th>
-        <th width="100">Upvote</th>
-      </tr>
-    </thead>
+  <%= render partial: "listworks", locals: { title: "Movies", works: @work_movies } %>
 
-    <% @work_movies.each do |work|  %>
-    <tr>
-      <td> <%= work.get_vote_count %> </td>
-      <td><%= link_to work[:title], work_path(work.id), method: :get%></td>
-      <td><%= work[:creator] %></td>
-      <td><%= work[:publication_year] %></td>
-      <td>
-          <%= link_to "Upvote", upvote_work_path(id: work.id), method: :post, class:"btn btn-primary" %>
-      </td>
-    </tr>
-    <% end %>
-  </table> 
-
-  <section class="media-table">
-  <h4>Books</h4>
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th width="80">Votes</th>
-        <th>Title</th>
-        <th>Created By</th>
-        <th width="100">Published</th>
-        <th width="100">Upvote</th>
-      </tr>
-    </thead>
-
-    <% @work_books.each do |work|  %>
-    <tr>
-      <td> <%= work.get_vote_count %> </td>
-      <td><%= link_to work[:title], work_path(work.id), method: :get%></td>
-      <td><%= work[:creator] %></td>
-      <td><%= work[:publication_year] %></td>
-      <td>
-          <%= link_to "Upvote", upvote_work_path(id: work.id), method: :post, class:"btn btn-primary" %>
-      </td>
-    </tr>
-    <% end %>
-  </table> 
+  <%= render partial: "listworks", locals: { title: "Books", works: @work_books } %>
 
   <%= link_to "Back to Media List", root_path, method: :get, class:"btn btn-primary" %>
-</section> 
+  </section> 
