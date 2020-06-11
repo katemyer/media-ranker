@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
 
   #Users
-  resources: users, only: [:index, :create, :show]
+  resources :users, only: [:index, :create, :show]
 
   # get    "/users"          , to: "users#index",   as: :users
   # post   "/users"          , to: "users#create"
