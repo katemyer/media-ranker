@@ -22,10 +22,12 @@ Rails.application.routes.draw do
 
 
   #Users
-  get    "/users"          , to: "users#index",   as: :users
-  post   "/users"          , to: "users#create"
+  resources: users, only: [:index, :create, :show]
+
+  # get    "/users"          , to: "users#index",   as: :users
+  # post   "/users"          , to: "users#create"
   # get    "/users/new"      , to: "users#new",     as: :new_user
-  get    "/users/:id"      , to: "users#show",    as: :user
+  # get    "/users/:id"      , to: "users#show",    as: :user
   # patch  "/users/:id"      , to: "users#update"
   # put    "/users/:id"      , to: "users#update"
   # delete "/users/:id"      , to: "users#destroy"
