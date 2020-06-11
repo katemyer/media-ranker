@@ -15,7 +15,7 @@
   <section>
   <%= link_to "Back to Media Ranks", root_path, method: :get, class:"btn btn-primary" %>
   <%= link_to "Edit", edit_work_path(@work.id), method: :get, class:"btn btn-primary" %>
-  <%= link_to "Upvote", works_path, method: :post, class:"btn btn-primary" %>
+  <%= link_to "Upvote", upvote_work_path(id: @work.id), method: :post, class:"btn btn-primary" %>
   <%= link_to "Delete", work_path(@work.id), method: :delete, data: {confirm: "Are you super sure?"}, class:"btn btn-primary" %>
  
   </section>
