@@ -14,13 +14,13 @@
       </tr>
     </thead>
     <tbody>
-    <% 1.times do |vote|  %>
+    <% @user_votes.each do |vote|  %>
       <tr>
-        <td>TODO: title + link to work</td>
-        <td>TODO: creator</td>
-        <td>TODO: publication_year</td>
-        <td>TODO: category</td>
-        <td>TODO: vote_created_at</td>
+        <td><%= vote.work.title %></td>
+        <td><%= vote.work.creator %></td>
+        <td><%= vote.work.publication_year %></td>
+        <td><%= vote.work.category %></td>
+        <td><%= vote.created_at %></td>
       </tr>
     <% end %>
     </tbody>
