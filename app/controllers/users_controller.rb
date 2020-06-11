@@ -6,8 +6,9 @@ def index
     if session[:user_id] != nil
       @users = User.all
     else
-      flash[:error] = "You must be logged in to see this page"
-      redirect_to root_path
+      flash[:error] = "You must be logged in to see all users."
+      # redirect_to root_path
+      @users = []
     end
 end
 
@@ -17,6 +18,8 @@ def show
     head :not_found
     return
   end
+  #query DB to get user votes
+  @user_votes = Vote.where('user_id = ?', @user.id  )
 end
 
 def new
