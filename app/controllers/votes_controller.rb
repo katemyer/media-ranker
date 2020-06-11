@@ -20,15 +20,6 @@ def new
   @vote = Vote.new
 end
 
-def edit
-  @vote = Vote.find_by(id: params[:id])
-  
-  if @vote.nil?
-    redirect_to root_path
-    return
-  end
-end
-
 #POST /votes (params)
 def create
   @vote = Vote.new(vote_params)

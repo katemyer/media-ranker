@@ -6,6 +6,7 @@ class HomepagesController < ApplicationController
     # Process to get work with most votes
     # https://stackoverflow.com/a/7131200
 
+    # or this version: Work.all.sort_by {|work| work.votes.count}.reverse.slice(0,10)
     # output of query is array that looks like this [1, 3] where 1 is work.id and 3 is the num of votes
     work_spotlight_id = Vote.left_joins(:work)     # Start with Vote left-join with Work
                             .group('works.id')     # Group by works id & Count

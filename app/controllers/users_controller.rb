@@ -19,7 +19,8 @@ class UsersController < ApplicationController
       return
     end
     #query DB to get user votes
-    @user_votes = Vote.where('user_id = ?', @user.id  )
+    # @user_votes = Vote.where('user_id = ?', @user.id  )
+    @user_votes = @user.votes
   end
 
   def new
