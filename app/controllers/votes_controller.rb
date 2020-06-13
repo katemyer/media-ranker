@@ -1,8 +1,8 @@
 class VotesController < ApplicationController
 #GET /votes
-def index
-  @votes = Vote.all
-end
+# def index
+#   @votes = Vote.all
+# end
 
 #GET /votes/:id
 def show

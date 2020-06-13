@@ -4,6 +4,6 @@ describe UsersController do
   it "can get the Users index" do
     get users_path
 
-    must_respond_with :redirect
+    must_respond_with :success
   end
 end
