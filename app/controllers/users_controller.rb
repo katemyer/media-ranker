@@ -14,10 +14,10 @@ class UsersController < ApplicationController
 
   #GET /users/:id
   def show
-    if @user.nil?
-      head :not_found
-      return
-    end
+    # if @user.nil?
+    #   head :not_found
+    #   return
+    # end
     #query DB to get user votes
     # @user_votes = Vote.where('user_id = ?', @user.id  )
     @user_votes = @user.votes
@@ -63,10 +63,10 @@ class UsersController < ApplicationController
 
   #DELETE /users/:id
   def destroy
-    if @user.nil?
-      head :not_found
-      return
-    end
+    # if @user.nil?
+    #   head :not_found
+    #   return
+    # end
     
     @user.destroy
     
@@ -128,4 +128,10 @@ end
 #controller filter
 def find_user
   @user = User.find_by(id: params[:id])
+
+  if @user.nil?
+    head :not_found
+    return
+  end
+
 end

@@ -1,0 +1,78 @@
+avengers:
+  title: Avengers Endgame
+  category: movie
+  creator: Kevin Feige
+  publication_year: 2019
+  description: Avengers! Assemble!
+thor:
+  title: Thor Ragnarok
+  category: movie
+  creator: Taika Waititi
+  publication_year: 2017
+  description: No, I don’t have a phone, but you could have sent an electronic letter. It’s called an email.
+captain:
+  title: Captain America The First Avenger
+  category: movie
+  creator: Kenneth Branagh
+  publication_year: 2011
+  description: Fondue Is Just Cheese And Bread, My Friend.
+jurassic:
+  title: Jurassic Park
+  category: movie
+  creator: Steven Spielberg
+  publication_year: 1988
+  description: Life finds a way.
+iron:
+  title: Iron Man
+  category: movie
+  creator: Jon Favreau
+  publication_year: 2008
+  description: Tony Stark Was Able To Build This In A Cave! With A Box Of Scraps!
+guardian:
+  title: Guardians of the Galaxy Volume 2
+  category: movie
+  creator: James Gunn
+  publication_year: 2017
+  description: You were stupid enough to let me live.
+ant:
+  title: Ant Man and the Wasp
+  category: movie
+  creator: Peyton Reed
+  publication_year: 2018
+  description: Tain America. Captain. Cap. It’s what we call him. If you’re a friend. I’m not saying I’m a friend of, a little, I know him.
+it:
+  title: It
+  category: movie
+  creator: Roy Lee
+  publication_year: 2017
+  description: Scarred for life. 
+hachiko:
+  title: Hachiko
+  category: movie
+  creator: Lasse Hallstrom
+  publication_year: 2009
+  description: Will completely ruin you for days.
+bridesmaids:
+  title: Bridesmaids
+  category: movie
+  creator: Paul Fieg
+  publication_year: 2011
+  description: Coming out like lava.
+parasite:
+  title: Parasite
+  category: movie
+  creator: Bong Joon-ho
+  publication_year: 2019
+  description: Plot twist that will give you an ulcer.
+mice:
+  title: Of Mice and Men
+  category: book
+  creator: John Steinbeck
+  publication_year: 1937
+  description: Will devastate you but read it anyway.
+bone:
+  title: Eternal
+  category: album
+  creator: Bone Thugs N Harmony
+  publication_year: 1999
+  description: Perfect for running cadence at 10 miles per hour.
